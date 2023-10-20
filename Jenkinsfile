@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        SONARQUBE_URL = 'http://192.168.33.10:9000'
+        SONARQUBE_LOGIN = credentials('38414e8c-737e-459e-ad56-2024f4963f16')
+    }
 
     stages {
         stage('GIT') {
