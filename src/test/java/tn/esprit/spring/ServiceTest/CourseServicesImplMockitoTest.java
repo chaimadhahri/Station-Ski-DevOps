@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Optional;
 
 @SpringBootTest
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 
 public class CourseServicesImplMockitoTest {
     @Mock
