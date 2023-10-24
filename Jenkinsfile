@@ -23,6 +23,12 @@ pipeline {
                 sh 'mvn sonar:sonar  -Dsonar.login=admin -Dsonar.password=sonar'
             }
         }
+	stage('JUNIT') {
+            steps {
+		sh 'mvn clean test -Dtest=tn.esprit.spring.ServiceTest.CourseServicesImplTest.java -Dmaven.test.failure.ignore=true'     
+            }
+        }
+
         stage('date système') {
             steps {
                 script {
