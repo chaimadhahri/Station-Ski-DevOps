@@ -19,7 +19,7 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level=AccessLevel.PRIVATE)
 @Entity
 public class Course implements Serializable {
-
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	Long numCourse;
@@ -35,13 +35,12 @@ public class Course implements Serializable {
 	@OneToMany(mappedBy= "course")
 	Set<Registration> registrations;
 
-	public Course( int level, TypeCourse typeCourse, Support support, Float price, int timeSlot) {
+	public Course(Long numCourse, int level, TypeCourse typeCourse, Support support, Float price, int timeSlot) {
+		this.numCourse = numCourse;
 		this.level = level;
 		this.typeCourse = typeCourse;
 		this.support = support;
 		this.price = price;
 		this.timeSlot = timeSlot;
 	}
-
-
 }
