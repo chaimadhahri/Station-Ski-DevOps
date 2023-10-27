@@ -28,12 +28,11 @@ pipeline {
 		sh 'mvn clean test -Dtest=tn.esprit.spring.ServiceTest.CourseServicesImplTest -Dmaven.test.failure.ignore=true'     
             }
         }
-	stage('MOCKITO') {
-            steps {
-           sh 'mvn clean test -Dtest=tn.esprit.spring.ServiceTest.CourseServicesImplMockitoTest' 
+	stage('NEXUS'){
+            steps{
+                sh "mvn deploy -DskipTests=true"
             }
-        }
-
+        } 
         stage('date système') {
             steps {
                 script {
